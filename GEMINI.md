@@ -2,11 +2,11 @@
 
 ## Project Overview
 
-`elysia-sveltekit` is a hook integrator bridging the Elysia web framework with SvelteKit. Built to run on **Bun**, it provides a factory function that generates an Elysia application instance alongside a native SvelteKit `Handle` hook. This allows developers to seamlessly inject any arbitrary SvelteKit context (such as `locals`, `platform`, etc.) directly into their Elysia endpoints in a strictly type-safe manner.
+`elysia-sveltekit` is a server hook adapter bridging the Elysia web framework with SvelteKit. Built to run on **Bun**, it provides a factory function that generates an Elysia application instance alongside a native SvelteKit `Handle` hook. This allows developers to seamlessly inject any arbitrary SvelteKit context (such as `locals`, `platform`, etc.) directly into their Elysia endpoints in a strictly type-safe manner.
 
 ### Repository Structure (Monorepo)
-*   `packages/elysia-sveltekit`: The core hook integrator package exposing the `sveltekit()` factory function.
-*   `apps/demo`: A sample SvelteKit application demonstrating the integration and usage of the hook integrator.
+*   `packages/elysia-sveltekit`: The core server hook adapter package exposing the `sveltekit()` factory function.
+*   `apps/demo`: A sample SvelteKit application demonstrating the integration and usage of the server hook adapter.
 
 ## Building and Running
 
