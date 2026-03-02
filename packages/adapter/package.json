@@ -4,12 +4,13 @@
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",
-  "dependencies": {
-    "elysia": "latest"
-  },
   "devDependencies": {
     "@sveltejs/kit": "^2.53.4",
     "bun-types": "latest",
+    "elysia": "1.2.0",
     "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "elysia": "^1.2"
   }
 }
