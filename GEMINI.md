@@ -1,10 +1,10 @@
 # Elysia SvelteKit
 
-Server hook adapter bridging the Elysia web framework with SvelteKit on Bun.
+Server hook adapter bridging the Elysia web framework with SvelteKit.
 
 ## Project Structure
 
-- `packages/elysia-sveltekit`: Core adapter package.
+- `packages/adapter`: Core adapter package.
 - `apps/demo`: SvelteKit demo application.
 
 ## Commands (Bun Monorepo)
@@ -27,7 +27,10 @@ Server hook adapter bridging the Elysia web framework with SvelteKit on Bun.
 ```typescript
 import { sveltekit } from "elysia-sveltekit";
 
-export const { app, hook } = sveltekit<Context, "/api">((event) => ({ locals: event.locals }), {
-  prefix: "/api",
-});
+export const { app, hook } = sveltekit<Context, "/api">(
+  (event) => ({ locals: event.locals }),
+  {
+    prefix: "/api",
+  },
+);
 ```

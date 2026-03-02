@@ -18,9 +18,6 @@
     "build": "tsc",
     "prepublishOnly": "bun run build"
   },
-  "engines": {
-    "bun": ">=1.0.0"
-  },
   "keywords": [
     "elysia",
     "sveltekit",

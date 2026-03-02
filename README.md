@@ -10,7 +10,7 @@ The adapter provides a factory function that generates an Elysia application ins
 
 This repository is managed as a **Bun workspace**.
 
-- [`packages/elysia-sveltekit`](./packages/elysia-sveltekit): The core server hook adapter package.
+- [`packages/adapter`](./packages/adapter): The core server hook adapter package.
 - [`apps/demo`](./apps/demo): A sample SvelteKit application demonstrating the integration and usage of the adapter.
 
 ## Quick Start
