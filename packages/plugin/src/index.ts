@@ -1,36 +1,32 @@
 import { Elysia, type ElysiaConfig } from "elysia";
 import type { RequestEvent, Handle } from "@sveltejs/kit";
 
-export class ElysiaSvelteKit<
+export function sveltekit<
   T extends Record<string, any> = {},
   Prefix extends string = "",
-> extends Elysia<Prefix> {
-  private sveltekitContext = new WeakMap<Request, T>();
-  private contextBuilder: (event: RequestEvent) => T;
+>(
+  contextBuilder: (event: RequestEvent) => T,
+  config?: ElysiaConfig<Prefix>,
+) {
+  const sveltekitContext = new WeakMap<Request, T>();
 
-  constructor(
-    contextBuilder: (event: RequestEvent) => T,
-    config?: ElysiaConfig<Prefix>,
-  ) {
-    super(config);
-    this.contextBuilder = contextBuilder;
+  const app = new Elysia(config).derive({ as: "scoped" }, ({ request }) => {
+    const context = sveltekitContext.get(request);
+    if (!context) {
+      throw new Error("SvelteKit context not found");
+    }
+    return context as T;
+  });
 
-    this.derive({ as: "scoped" }, ({ request }) => {
-      const context = this.sveltekitContext.get(request);
-      if (!context) {
-        throw new Error("SvelteKit context not found");
-      }
-      return context;
-    });
-  }
-
-  public sveltekitHook: Handle = async ({ event, resolve }) => {
-    const pathPrefix = this.config?.prefix || "";
+  const hook: Handle = async ({ event, resolve }) => {
+    const pathPrefix = config?.prefix || "";
 
     if (event.url.pathname.startsWith(pathPrefix)) {
-      this.sveltekitContext.set(event.request, this.contextBuilder(event));
-      return this.handle(event.request);
+      sveltekitContext.set(event.request, contextBuilder(event));
+      return app.handle(event.request);
     }
     return resolve(event);
   };
+
+  return { app, hook };
 }
