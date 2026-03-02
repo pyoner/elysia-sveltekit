@@ -6,14 +6,24 @@ export interface SvelteKitEvent {
   [key: string]: any;
 }
 
+export type SvelteKitHandle = (input: {
+  event: any;
+  resolve(event: any, opts?: any): Promise<Response> | Response;
+}) => Promise<Response> | Response;
+
 export class ElysiaSvelteKit<
   T extends Record<string, any> = {},
   Prefix extends string = ""
 > extends Elysia<Prefix> {
   private sveltekitContext = new WeakMap<Request, T>();
+  private contextBuilder: (event: SvelteKitEvent) => T;
 
-  constructor(config?: ElysiaConfig<Prefix>) {
+  constructor(
+    contextBuilder: (event: SvelteKitEvent) => T,
+    config?: ElysiaConfig<Prefix>
+  ) {
     super(config);
+    this.contextBuilder = contextBuilder;
     
     this.derive({ as: "scoped" }, ({ request }) => {
       const context = this.sveltekitContext.get(request);
@@ -24,19 +34,10 @@ export class ElysiaSvelteKit<
     });
   }
 
-  public sveltekitHook(
-    contextBuilder: (event: SvelteKitEvent) => T,
-    pathPrefix = "/api"
-  ) {
-    return async ({
-      event,
-      resolve,
-    }: {
-      event: SvelteKitEvent;
-      resolve: (event: any) => Promise<Response>;
-    }) => {
+  public sveltekitHook(pathPrefix = "/api"): SvelteKitHandle {
+    return async ({ event, resolve }) => {
       if (event.url.pathname.startsWith(pathPrefix)) {
-        this.sveltekitContext.set(event.request, contextBuilder(event));
+        this.sveltekitContext.set(event.request, this.contextBuilder(event));
         return this.handle(event.request);
       }
       return resolve(event);

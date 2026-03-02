@@ -5,15 +5,15 @@ interface SvelteKitContext {
 	platform: App.Platform;
 }
 
-export const app = new ElysiaSvelteKit({ prefix: '/api' });
-
-export const handleApi = app.sveltekitHook(
+export const app = new ElysiaSvelteKit<SvelteKitContext, '/api'>(
 	(event: SvelteKitEvent) => ({
 		locals: event.locals as App.Locals,
 		platform: (event.platform ?? {}) as App.Platform
 	}),
-	'/api'
+	{ prefix: '/api' }
 );
+
+export const handleApi = app.sveltekitHook('/api');
 
 export const api = app.get('/hello', (ctx: any) => {
 	const { locals, platform } = ctx as SvelteKitContext;
