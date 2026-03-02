@@ -6,7 +6,7 @@ export function sveltekit<
   Prefix extends string = "",
 >(
   contextBuilder: (event: RequestEvent) => T,
-  config?: ElysiaConfig<Prefix>,
+  config: ElysiaConfig<Prefix> & { prefix: Prefix },
 ) {
   const sveltekitContext = new WeakMap<Request, T>();
 
@@ -19,7 +19,7 @@ export function sveltekit<
   });
 
   const hook: Handle = async ({ event, resolve }) => {
-    const pathPrefix = config?.prefix || "";
+    const pathPrefix = config.prefix;
 
     if (event.url.pathname.startsWith(pathPrefix)) {
       sveltekitContext.set(event.request, contextBuilder(event));
