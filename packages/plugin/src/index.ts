@@ -2,7 +2,7 @@ import { Elysia } from "elysia";
 
 export const sveltekitContextMap = new WeakMap<Request, any>();
 
-export const sveltekit = <T extends Record<string, any> = {}>() =>
+export const sveltekitPlugin = <T extends Record<string, any> = {}>() =>
   new Elysia({
     name: "elysia-sveltekit-plugin",
   }).derive({ as: "scoped" }, ({ request, status }) => {
