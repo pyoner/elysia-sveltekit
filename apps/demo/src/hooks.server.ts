@@ -1,4 +1,4 @@
-import { handleApi } from '$lib/server/api';
-import type { Handle } from '@sveltejs/kit';
+import { handleApi } from "$lib/server/api";
+import type { Handle } from "@sveltejs/kit";
 
 export const handle: Handle = handleApi;

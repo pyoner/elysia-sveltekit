@@ -5,12 +5,13 @@
     "apps/*",
     "packages/*"
   ],
-  "scripts": {
-    "oxlint": "oxlint",
-    "oxfmt": "oxfmt"
-  },
-  "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check"
+  },
   "devDependencies": {
     "@types/bun": "latest",
     "oxfmt": "^0.36.0",
@@ -18,5 +19,8 @@
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "elysia-sveltekit-monorepo": "."
   }
 }

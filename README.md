@@ -10,19 +10,21 @@ The adapter provides a factory function that generates an Elysia application ins
 
 This repository is managed as a **Bun workspace**.
 
-*   [`packages/elysia-sveltekit`](./packages/elysia-sveltekit): The core server hook adapter package.
-*   [`apps/demo`](./apps/demo): A sample SvelteKit application demonstrating the integration and usage of the adapter.
+- [`packages/elysia-sveltekit`](./packages/elysia-sveltekit): The core server hook adapter package.
+- [`apps/demo`](./apps/demo): A sample SvelteKit application demonstrating the integration and usage of the adapter.
 
 ## Quick Start
 
 The project strictly uses [Bun](https://bun.sh/).
 
 1. **Install dependencies**
+
    ```bash
    bun install
    ```
 
 2. **Run the demo application**
+
    ```bash
    cd apps/demo
    bun run dev

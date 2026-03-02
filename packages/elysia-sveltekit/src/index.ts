@@ -1,10 +1,7 @@
 import { Elysia, type ElysiaConfig } from "elysia";
 import type { RequestEvent, Handle } from "@sveltejs/kit";
 
-export function sveltekit<
-  T extends Record<string, any> = {},
-  Prefix extends string = "",
->(
+export function sveltekit<T extends Record<string, any> = {}, Prefix extends string = "">(
   contextBuilder: (event: RequestEvent) => T,
   config: ElysiaConfig<Prefix> & { prefix: Prefix },
 ) {

@@ -40,14 +40,14 @@ export const { app, hook: handleApi } = sveltekit<MyContext, "/api">(
     locals: event.locals,
     platform: event.platform ?? {}, // Provide defaults if necessary
   }),
-  { prefix: "/api" } // The path prefix your Elysia app will listen on
+  { prefix: "/api" }, // The path prefix your Elysia app will listen on
 );
 
 // 3. Build your API endpoints
 export const api = app.get("/hello", ({ locals, platform }) => {
-  return { 
+  return {
     message: "Hello from Elysia!",
-    user: locals.user // Strongly typed!
+    user: locals.user, // Strongly typed!
   };
 });
 ```
@@ -58,8 +58,8 @@ In your SvelteKit `hooks.server.ts`, simply export the generated `hook`.
 
 ```typescript
 // src/hooks.server.ts
-import { handleApi } from '$lib/server/api';
-import type { Handle } from '@sveltejs/kit';
+import { handleApi } from "$lib/server/api";
+import type { Handle } from "@sveltejs/kit";
 
 export const handle: Handle = handleApi;
 ```
@@ -67,9 +67,9 @@ export const handle: Handle = handleApi;
 If you have multiple hooks, use SvelteKit's `sequence`:
 
 ```typescript
-import { sequence } from '@sveltejs/kit/hooks';
-import { handleApi } from '$lib/server/api';
-import { myOtherHook } from './otherHooks';
+import { sequence } from "@sveltejs/kit/hooks";
+import { handleApi } from "$lib/server/api";
+import { myOtherHook } from "./otherHooks";
 
 export const handle = sequence(myOtherHook, handleApi);
 ```

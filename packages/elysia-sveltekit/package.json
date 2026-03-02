@@ -1,7 +1,9 @@
 {
   "name": "elysia-sveltekit",
   "version": "1.0.0",
+  "type": "module",
   "main": "src/index.ts",
+  "types": "src/index.ts",
   "dependencies": {
     "elysia": "latest"
   },
@@ -9,7 +11,5 @@
     "@sveltejs/kit": "^2.53.4",
     "bun-types": "latest",
     "typescript": "^5.0.0"
-  },
-  "type": "module",
-  "types": "src/index.ts"
+  }
 }
