@@ -19,8 +19,5 @@
   },
   "peerDependencies": {
     "typescript": "^5"
-  },
-  "dependencies": {
-    "elysia-sveltekit-monorepo": "."
   }
 }

@@ -12,7 +12,7 @@ export function sveltekit<T extends Record<string, any> = {}, Prefix extends str
     if (!context) {
       throw new Error("SvelteKit context not found");
     }
-    return context as T;
+    return context;
   });
 
   const hook: Handle = async ({ event, resolve }) => {
