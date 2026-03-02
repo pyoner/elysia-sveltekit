@@ -1,42 +1,33 @@
-# sv
+# SvelteKit Demo App
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This is a demonstration application showing how to integrate SvelteKit with Elysia using the `elysia-sveltekit` server hook adapter.
 
-## Creating a project
+## How it works
 
-If you're seeing this, you've probably already done this step. Congrats!
+1. The Elysia backend is defined in [`src/lib/server/api.ts`](./src/lib/server/api.ts). It uses the `sveltekit` factory function to build the Elysia instance and map the SvelteKit `RequestEvent` context into it.
+2. The generated SvelteKit hook (`handleApi`) is exported from [`src/hooks.server.ts`](./src/hooks.server.ts).
 
-```sh
-# create a new project
-npx sv create my-app
+## Running Locally
+
+Ensure you have installed the monorepo dependencies from the root directory using `bun install`.
+
+```bash
+# Start the development server
+bun run dev
 ```
 
-To recreate this project with the same configuration:
+Once the server is running, you can test the API integration by navigating to:
 
-```sh
-# recreate this project
-npx sv@0.12.4 create --template minimal --types ts --no-install apps/demo
+```
+http://localhost:5173/api/hello
 ```
 
-## Developing
+You should see a JSON response confirming the SvelteKit context (`locals` and `platform`) was successfully injected into the Elysia endpoint.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Type Checking
 
-```sh
-npm run dev
+To verify the integration is perfectly type-safe:
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```bash
+bun run check
 ```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
