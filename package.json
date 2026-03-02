@@ -5,10 +5,16 @@
     "apps/*",
     "packages/*"
   ],
+  "scripts": {
+    "oxlint": "oxlint",
+    "oxfmt": "oxfmt"
+  },
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "oxfmt": "^0.36.0",
+    "oxlint": "^1.50.0"
   },
   "peerDependencies": {
     "typescript": "^5"
