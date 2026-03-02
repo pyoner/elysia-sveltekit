@@ -1,7 +1,7 @@
 {
   "name": "elysia-sveltekit",
   "version": "1.0.0",
-  "description": "Server hook adapter bridging the Elysia web framework with SvelteKit on Bun.",
+  "description": "Server hook adapter bridging the Elysia web framework with SvelteKit",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
