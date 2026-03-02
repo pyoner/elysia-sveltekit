@@ -3,6 +3,7 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "bundler",
+    "skipLibCheck": true,
     "strict": true,
     "allowImportingTsExtensions": true,
     "allowJs": true,
@@ -10,9 +11,7 @@
     "noEmit": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
-    "types": [
-      "bun-types"
-    ]
+    "types": ["bun-types"]
   },
   "include": ["src"]
 }

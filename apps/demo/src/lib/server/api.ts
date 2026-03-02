@@ -1,8 +1,13 @@
 import { Elysia } from 'elysia';
-import { platformPlugin } from 'elysia-sveltekit-plugin';
+import { sveltekit } from 'elysia-sveltekit-plugin';
+
+interface SvelteKitContext {
+	locals: App.Locals;
+	platform: App.Platform;
+}
 
 export const api = new Elysia({ prefix: '/api' })
-	.use(platformPlugin)
-	.get('/hello', ({ platform }) => {
-		return { message: 'Hello from Elysia SvelteKit Plugin!', platform };
+	.use(sveltekit<SvelteKitContext>())
+	.get('/hello', ({ locals, platform }) => {
+		return { message: 'Hello from Elysia SvelteKit Plugin!', locals, platform };
 	});
