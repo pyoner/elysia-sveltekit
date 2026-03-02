@@ -27,10 +27,7 @@ Server hook adapter bridging the Elysia web framework with SvelteKit.
 ```typescript
 import { sveltekit } from "elysia-sveltekit";
 
-export const { app, hook } = sveltekit<Context, "/api">(
-  (event) => ({ locals: event.locals }),
-  {
-    prefix: "/api",
-  },
-);
+export const { app, hook } = sveltekit<Context, "/api">((event) => ({ locals: event.locals }), {
+  prefix: "/api",
+});
 ```

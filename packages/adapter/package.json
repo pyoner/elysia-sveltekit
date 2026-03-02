@@ -2,6 +2,27 @@
   "name": "elysia-sveltekit",
   "version": "1.0.0",
   "description": "Server hook adapter bridging the Elysia web framework with SvelteKit",
+  "keywords": [
+    "adapter",
+    "bun",
+    "elysia",
+    "hook",
+    "server",
+    "sveltekit"
+  ],
+  "homepage": "https://github.com/pyoner/elysia-sveltekit#readme",
+  "bugs": {
+    "url": "https://github.com/pyoner/elysia-sveltekit/issues"
+  },
+  "license": "MIT",
+  "author": "pyoner",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pyoner/elysia-sveltekit.git"
+  },
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -11,31 +32,10 @@
       "import": "./dist/index.js"
     }
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "bun run build"
   },
-  "keywords": [
-    "elysia",
-    "sveltekit",
-    "adapter",
-    "server",
-    "hook",
-    "bun"
-  ],
-  "author": "pyoner",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pyoner/elysia-sveltekit.git"
-  },
-  "bugs": {
-    "url": "https://github.com/pyoner/elysia-sveltekit/issues"
-  },
-  "homepage": "https://github.com/pyoner/elysia-sveltekit#readme",
   "devDependencies": {
     "@sveltejs/kit": "^2.0.0",
     "bun-types": "latest",
