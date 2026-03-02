@@ -6,8 +6,9 @@
     "elysia": "latest"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "bun-types": "latest"
+    "@sveltejs/kit": "^2.53.4",
+    "bun-types": "latest",
+    "typescript": "^5.0.0"
   },
   "type": "module",
   "types": "src/index.ts"

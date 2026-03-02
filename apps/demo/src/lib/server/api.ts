@@ -1,4 +1,5 @@
-import { ElysiaSvelteKit, type SvelteKitEvent } from "elysia-sveltekit-plugin";
+import { ElysiaSvelteKit } from "elysia-sveltekit-plugin";
+import type { RequestEvent } from "@sveltejs/kit";
 
 interface SvelteKitContext {
   locals: App.Locals;
@@ -6,7 +7,7 @@ interface SvelteKitContext {
 }
 
 export const app = new ElysiaSvelteKit<SvelteKitContext, "/api">(
-  (event: SvelteKitEvent) => ({
+  (event: RequestEvent) => ({
     locals: event.locals as App.Locals,
     platform: (event.platform ?? {}) as App.Platform,
   }),

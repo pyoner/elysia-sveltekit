@@ -33,6 +33,7 @@
         "elysia": "latest",
       },
       "devDependencies": {
+        "@sveltejs/kit": "^2.53.4",
         "bun-types": "latest",
         "typescript": "^5.0.0",
       },
