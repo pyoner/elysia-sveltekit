@@ -34,16 +34,13 @@ export class ElysiaSvelteKit<
     });
   }
 
-  public sveltekitHook(): SvelteKitHandle {
-    // Elysia stores the resolved configuration in `this.config`
+  public sveltekitHook: SvelteKitHandle = async ({ event, resolve }) => {
     const pathPrefix = this.config?.prefix || "";
-
-    return async ({ event, resolve }) => {
-      if (event.url.pathname.startsWith(pathPrefix)) {
-        this.sveltekitContext.set(event.request, this.contextBuilder(event));
-        return this.handle(event.request);
-      }
-      return resolve(event);
-    };
-  }
+    
+    if (event.url.pathname.startsWith(pathPrefix)) {
+      this.sveltekitContext.set(event.request, this.contextBuilder(event));
+      return this.handle(event.request);
+    }
+    return resolve(event);
+  };
 }
