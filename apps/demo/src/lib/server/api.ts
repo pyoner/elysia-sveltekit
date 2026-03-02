@@ -1,4 +1,4 @@
-import { sveltekit } from "elysia-sveltekit-plugin";
+import { sveltekit } from "elysia-sveltekit";
 import type { RequestEvent } from "@sveltejs/kit";
 
 interface SvelteKitContext {

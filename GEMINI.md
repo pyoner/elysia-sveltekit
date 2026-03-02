@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-`elysia-sveltekit-plugin` is a plugin designed to integrate the Elysia web framework with SvelteKit. Built to run on **Bun**, this plugin enhances the Elysia context by injecting a `platform` property, providing seamless interoperability between Elysia's backend capabilities and SvelteKit's environment.
+`elysia-sveltekit` is a plugin designed to integrate the Elysia web framework with SvelteKit. Built to run on **Bun**, this plugin enhances the Elysia context by injecting a `platform` property, providing seamless interoperability between Elysia's backend capabilities and SvelteKit's environment.
 
 ## Building and Running
 
