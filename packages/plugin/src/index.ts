@@ -34,7 +34,10 @@ export class ElysiaSvelteKit<
     });
   }
 
-  public sveltekitHook(pathPrefix = "/api"): SvelteKitHandle {
+  public sveltekitHook(): SvelteKitHandle {
+    // Elysia stores the resolved configuration in `this.config`
+    const pathPrefix = this.config?.prefix || "";
+
     return async ({ event, resolve }) => {
       if (event.url.pathname.startsWith(pathPrefix)) {
         this.sveltekitContext.set(event.request, this.contextBuilder(event));

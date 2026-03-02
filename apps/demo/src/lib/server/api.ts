@@ -13,7 +13,7 @@ export const app = new ElysiaSvelteKit<SvelteKitContext, '/api'>(
 	{ prefix: '/api' }
 );
 
-export const handleApi = app.sveltekitHook('/api');
+export const handleApi = app.sveltekitHook();
 
 export const api = app.get('/hello', (ctx: any) => {
 	const { locals, platform } = ctx as SvelteKitContext;
