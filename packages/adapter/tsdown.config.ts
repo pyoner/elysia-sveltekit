@@ -8,4 +8,6 @@ export default defineConfig({
   exports: {
     devExports: "development",
   },
+  publint: true,
+  attw: true,
 });
