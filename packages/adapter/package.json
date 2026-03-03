@@ -15,7 +15,7 @@
     "url": "https://github.com/pyoner/elysia-sveltekit/issues"
   },
   "license": "MIT",
-  "author": "pyoner",
+  "author": "Askar Yusupov <devex.soft@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pyoner/elysia-sveltekit.git"
