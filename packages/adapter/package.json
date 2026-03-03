@@ -46,7 +46,8 @@
   },
   "scripts": {
     "build": "tsdown",
-    "prepublishOnly": "bun run build"
+    "prepublishOnly": "bun run build",
+    "publish:pnpm": "pnpm publish --access public"
   },
   "devDependencies": {
     "@arethetypeswrong/core": "^0.18.2",
