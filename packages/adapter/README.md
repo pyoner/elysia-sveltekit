@@ -26,7 +26,6 @@ Create your Elysia application and define the context mapping. The `sveltekit` f
 ```typescript
 // src/lib/server/api.ts
 import { sveltekit } from "elysia-sveltekit";
-import type { RequestEvent } from "@sveltejs/kit";
 
 // 1. Define the context you want to inject
 interface MyContext {
@@ -36,9 +35,9 @@ interface MyContext {
 
 // 2. Initialize the adapter
 export const { app, hook: handleApi } = sveltekit<MyContext, "/api">(
-  (event: RequestEvent) => ({
+  (event) => ({
     locals: event.locals,
-    platform: event.platform ?? {}, // Provide defaults if necessary
+    platform: event.platform,
   }),
   { prefix: "/api" }, // The path prefix your Elysia app will listen on
 );
@@ -62,16 +61,6 @@ import { handleApi } from "$lib/server/api";
 import type { Handle } from "@sveltejs/kit";
 
 export const handle: Handle = handleApi;
-```
-
-If you have multiple hooks, use SvelteKit's `sequence`:
-
-```typescript
-import { sequence } from "@sveltejs/kit/hooks";
-import { handleApi } from "$lib/server/api";
-import { myOtherHook } from "./otherHooks";
-
-export const handle = sequence(myOtherHook, handleApi);
 ```
 
 ## License
