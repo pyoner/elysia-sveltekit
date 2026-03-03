@@ -41,7 +41,6 @@
   "devDependencies": {
     "@arethetypeswrong/core": "^0.18.2",
     "@sveltejs/kit": "^2.0.0",
-    "attw": "^1.0.0",
     "bun-types": "latest",
     "elysia": "1.2.0",
     "publint": "^0.3.18",

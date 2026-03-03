@@ -34,7 +34,6 @@
       "devDependencies": {
         "@arethetypeswrong/core": "^0.18.2",
         "@sveltejs/kit": "^2.0.0",
-        "attw": "^1.0.0",
         "bun-types": "latest",
         "elysia": "1.2.0",
         "publint": "^0.3.18",
@@ -339,8 +338,6 @@
     "aria-query": ["aria-query@5.3.1", "", {}, "sha512-Z/ZeOgVl7bcSYZ/u/rh0fOpvEpq//LZmdbkXyc7syVzjPAhfOa9ebsdTSjEBDU4vs5nC98Kfduj1uFo0qyET3g=="],
 
     "ast-kit": ["ast-kit@3.0.0-beta.1", "", { "dependencies": { "@babel/parser": "^8.0.0-beta.4", "estree-walker": "^3.0.3", "pathe": "^2.0.3" } }, "sha512-trmleAnZ2PxN/loHWVhhx1qeOHSRXq4TDsBBxq3GqeJitfk3+jTQ+v/C1km/KYq9M7wKqCewMh+/NAvVH7m+bw=="],
-
-    "attw": ["attw@1.0.0", "", { "bin": { "attw": "cli.js" } }, "sha512-sUJK62u07rUakcCmke8aJ4WIW8CzRRGhwEJfk2ot3ME1pVTRZ7Ozblc1JT8gZ64wp8u9xlpYQJJc7d1gTslSGg=="],
 
     "axobject-query": ["axobject-query@4.1.0", "", {}, "sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ=="],
 
