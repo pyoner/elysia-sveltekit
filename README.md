@@ -13,7 +13,30 @@ This repository is managed as a **Bun workspace**.
 - [`packages/adapter`](./packages/adapter): The core server hook adapter package.
 - [`apps/demo`](./apps/demo): A sample SvelteKit application demonstrating the integration and usage of the adapter.
 
-## Quick Start
+## How to Use
+
+The adapter provides a factory function that creates an Elysia app and a SvelteKit `Handle` hook. Define your context mapping and prefix, then export the hook in `hooks.server.ts`.
+
+```typescript
+// src/lib/server/api.ts
+import { sveltekit } from "elysia-sveltekit";
+
+export const { app, hook } = sveltekit((event) => ({ locals: event.locals }), { prefix: "/api" });
+
+// Define endpoints using the app object
+export const api = app.get("/hello", ({ locals }) => {
+  return { message: "Hello from Elysia!", user: locals.user };
+});
+```
+
+```typescript
+// src/hooks.server.ts
+import { hook } from "$lib/server/api";
+
+export const handle = hook;
+```
+
+For full documentation, see [`packages/adapter/README.md`](./packages/adapter/README.md).
 
 The project strictly uses [Bun](https://bun.sh/).
 

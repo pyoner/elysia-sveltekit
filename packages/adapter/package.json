@@ -25,6 +25,7 @@
   ],
   "type": "module",
   "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.cts",
   "exports": {
     ".": {
@@ -33,6 +34,15 @@
       "require": "./dist/index.cjs"
     },
     "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.cjs"
+      },
+      "./package.json": "./package.json"
+    }
   },
   "scripts": {
     "build": "tsdown",
@@ -50,15 +60,5 @@
   "peerDependencies": {
     "@sveltejs/kit": "^2.0.0",
     "elysia": "^1.2"
-  },
-  "module": "./dist/index.mjs",
-  "publishConfig": {
-    "exports": {
-      ".": {
-        "import": "./dist/index.mjs",
-        "require": "./dist/index.cjs"
-      },
-      "./package.json": "./package.json"
-    }
   }
 }
